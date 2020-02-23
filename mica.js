@@ -2,20 +2,29 @@
 
 const packageJson = require('./package.json');
 const VERSION = packageJson.version;
-const {logger} = require('./logger');
-const {generate} = require('./commands/generate');
+
+let {logger} = require('./logger');
+const {generate} = require('./commands/generate/');
 const {terminator} = require('./terminator');
 
 const cli = require('commander');
+const rootDirectory = process.cwd();
+
 cli.version(VERSION)
     .option('-v, --verbose', 'verbosity', 0);
 
-cli.command('new')
+cli.command('new [dir]')
     .alias('init')
     .description('creates a new mica project')
-    .action(function newProject(command, options) {
+    .option('-f, --fetch-dependencies', 'fetch the latest dependencies from git', false)
+    .action(function newProject(dir, command) {
         logger.debug('cli#new');
-        generate(options);
+        const args = {
+            rootDirectory,
+            targetDirectory: dir || '.',
+            fetchDependencies: command['fetchDependencies']
+        };
+        generate(args);
     });
 
 cli.command('help')
