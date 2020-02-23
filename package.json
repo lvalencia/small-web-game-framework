@@ -1,0 +1,24 @@
+{
+  "name": "mica",
+  "version": "0.0.1",
+  "description": "Small Web Game Framework",
+  "bin": {
+    "mica": "./mica.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "game",
+    "framework",
+    "webgl",
+    "cli"
+  ],
+  "author": "Luis Valencia",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.1.1",
+    "underscore": "^1.9.2"
+  }
+}
