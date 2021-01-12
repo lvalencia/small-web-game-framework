@@ -89,30 +89,30 @@ function generate({rootDirectory, targetDirectory, fetchDependencies}, {
             [sourceDirectories.root],
             targetDirectories.root,
             [
-                '^.*.html$',
-                '^.*.json$',
-                '^.*.js$'
+                '^.*\\.html$',
+                '^.*\\.json$',
+                '^.*\\.js$'
             ]
         );
         directorySynchronizer.synchronize(
             [sourceDirectories.root],
             targetDirectories.js,
             [
-                '^.*.mjs$'
+                '^.*\\.mjs$'
             ]
         );
         directorySynchronizer.synchronize(
             [sourceDirectories.dependencies],
             targetDirectories.dependencies,
             [
-                '^.*.mjs$'
+                '^.*\\.mjs$'
             ]
         );
         directorySynchronizer.synchronize(
             [sourceDirectories.helpers],
             targetDirectories.helpers,
             [
-                '^.*.mjs$'
+                '^.*\\.mjs$'
             ]
         );
     });
